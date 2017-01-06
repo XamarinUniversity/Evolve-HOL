@@ -52,7 +52,7 @@ In this part, you will create the landing page and add a button centered in the 
 11. Run the application to test your work.
 
 ## Display an image on the landing page
-                                                                                                                                                                                                                                                                                                   -
+
 In this part, you will add a background image to **HomePage** (see below).
 
 ![](./media/image4.png)
@@ -126,7 +126,7 @@ To get you started, below is sample showing how to define the first row in XAML,
 
 6. Set the Page’s **Title** property to "eXam". This can be done in either the .xaml or .xaml.cs file.
 
-# Navigate on button tap
+## Navigate on button tap
 
 In this part, you will add behavior to the landing-page button so it navigates to the question page.
 
@@ -142,7 +142,7 @@ In this part, you will add behavior to the landing-page button so it navigates t
 
 This is the first time you will be able to see the **QuestionPage** UI running live. Spend a few minutes revising the UI layout if needed.
 
-# Load game data
+## Load game data
 
 In this part, you will add pre-written classes for the game logic and an XML file containing the questions. You’ll hold a static instance of the game class in the Application class so it’s easy to access from all parts of the app.
 
@@ -383,20 +383,20 @@ In this part, you will code a new Content Page with a ListView to display the re
 1. You will need a view model for the Quiz Question class. You have two options: add the provided code to the project or write it yourself.
 
 To add the provided code:
+- Locate **QuizQuestionViewModel.cs** in the Assets folder and add it to the PCL. 
 
-	- Locate **QuizQuestionViewModel.cs** in the Assets folder and add it to the PCL. 
-	- Take a moment to review the code. It is a simple class but it demonstrates a few interesting patterns common to view models; for example, it provides a convenient **IsCorrect** property that is needed by the UI but isn’t available directly in the underlying quiz-question data.
+- Take a moment to review the code. It is a simple class but it demonstrates a few interesting patterns common to view models; for example, it provides a convenient **IsCorrect** property that is needed by the UI but isn’t available directly in the underlying quiz-question data.
 
 To write it yourself:
-	- Add a new class named **QuizQuestionViewModel** in the PCL project.
+- Add a new class named **QuizQuestionViewModel** in the PCL project.
 
-	- The view model will encapsulate a **QuizQuestion** instance as well as the user’s response. Change the constructor signature to accept this data: a **QuizQuestion** and a Nullable bool (i.e. **bool?**).
+- The view model will encapsulate a **QuizQuestion** instance as well as the user’s response. Change the constructor signature to accept this data: a **QuizQuestion** and a Nullable bool (i.e. **bool?**).
 
-	- Create a private field to store the passed-in **QuizQuestion** and a public property to hold the response. Assign both in the constructor.
+- Create a private field to store the passed-in **QuizQuestion** and a public property to hold the response. Assign both in the constructor.
 
-	- Create read-only properties to expose the three public properties of **QuizQuestion** (Question, Answer, Explanation). Your properties in **QuizQuestionViewModel** can use the same names as the underlying **QuizQuestion** properties (Question, Answer, Explanation).
+- Create read-only properties to expose the three public properties of **QuizQuestion** (Question, Answer, Explanation). Your properties in **QuizQuestionViewModel** can use the same names as the underlying **QuizQuestion** properties (Question, Answer, Explanation).
 
-	- Create a read-only Boolean property named **IsCorrect** that determines whether the user’s response is the correct answer for that question.
+- Create a read-only Boolean property named **IsCorrect** that determines whether the user’s response is the correct answer for that question.
 
 1. Add a new class named **ReviewPageViewModel** to the PCL project and open the file.
 

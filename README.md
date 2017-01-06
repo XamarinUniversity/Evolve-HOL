@@ -19,7 +19,7 @@ The supplied code and an image can be found in the **Assets** folder. Please mak
 
 | Platform | What you need to do |
 |----------|-----------------|
-| Mac      | Cross-platform **>** App **>** Xamarin.Forms App C\# (select the "Use Portable Class Library" radio button on the 2^nd^ screen)
+| Mac      | Cross-platform **>** App **>** Xamarin.Forms App C\# (select the "Use Portable Class Library" radio button on the 2nd screen)
 | Windows  | Templates **>** Visual Studio C\# **>** Cross-Platform **>** Blank App (Xamarin.Forms portable). For the UWP project, accept the default versioning.
 
 3. Update the Xamarin.Forms NuGet package in each project.

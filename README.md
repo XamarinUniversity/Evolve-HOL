@@ -19,8 +19,8 @@ The supplied code and an image can be found in the **Assets** folder. Please mak
 
 | Platform | What you need to do |
 |----------|-----------------|
-| Mac      | Cross-platform > App > Xamarin.Forms App C\# (select the "Use Portable Class Library" radio button on the 2^nd^ screen)
-| Windows  | Templates > Visual Studio C\# > Cross-Platform > Blank App (Xamarin.Forms portable). For the UWP project, accept the default versioning.
+| Mac      | Cross-platform **>** App **>** Xamarin.Forms App C\# (select the "Use Portable Class Library" radio button on the 2^nd^ screen)
+| Windows  | Templates **>** Visual Studio C\# **>** Cross-Platform **>** Blank App (Xamarin.Forms portable). For the UWP project, accept the default versioning.
 
 3. Update the Xamarin.Forms NuGet package in each project.
 4. Run one or more of the platform-specific projects to verify your installation and setup are configured correctly. You can use either a simulator or a device.
@@ -41,7 +41,7 @@ In this part, you will create the landing page and add a button centered in the 
 
 6. Assign the layout to the **Content** of the page.
 
-7. Create a **Button** and set its **Text** to “Start eXam!”. Optionally, set the **TextColor**, **BackgroundColor** and **Font** to values of your choice.
+7. Create a **Button** and set its **Text** to &quot;Start eXam!&quot;. Optionally, set the **TextColor**, **BackgroundColor** and **Font** to values of your choice.
 
 8. Add the button to the **Children** of the **AbsoluteLayout**. Optionally, pass positioning information to center the button on the page; use (0.5, 0.5, 150, 60) as the Rectangle parameter and **PositionProportional** for the **AbsoluteLayoutFlags**.
 
@@ -77,13 +77,13 @@ In this part, you will add a **NavigationPage** that provides the infrastructure
 
 1. Open the Application class: **App.cs** in Xamarin Studio or **eXam.cs** in Visual Studio.
 
-2. In the constructor, instantiate a new **NavigationPage** passing an instance of **HomePage** into the constructor. Assign the **NavigationPage** to the app’s **MainPage**. This will replace the previous assignment of a **HomePage** object.
+2. In the constructor, instantiate a new `NavigationPage` passing an instance of **HomePage** into the constructor. Assign the **NavigationPage** to the app’s **MainPage**. This will replace the previous assignment of a **HomePage** object.
 
 3. Run the application; notice you now have a navigation bar showing on the landing page. You’ll use the navigation bar on other pages but you don’t need it on the landing page.
 
 4. Open **HomePage.cs** and locate the constructor.
 
-5. Hide the navigation bar using the static **NavigationPage.SetHasNavigationBar** method.
+5. Hide the navigation bar using the static `NavigationPage.SetHasNavigationBar` method.
 
 ## Turn on XAMLC
 
@@ -91,7 +91,7 @@ In this part, you will instruct the build system to compile your XAML pages. Thi
 
 1. Open the Application class: **App.cs** in Xamarin Studio or **eXam.cs** in Visual Studio.
 
-2. Add the **XamlCompilationAttribute** to the top of the file to enable assembly-wide XAML compilation.
+2. Add the `XamlCompilationAttribute` to the top of the file to enable assembly-wide XAML compilation.
 
 3. Run the application to make sure it still runs as expected.
 
@@ -101,23 +101,23 @@ In this part, you will add a page to display a quiz question (see below). This p
 
 ![](./media/image5.png)
 
-1. Add a new XAML page to the PCL project. The template is called **Forms** **Content Page Xaml** in Xamarin Studio; it’s called **Forms Xaml Page** in Visual Studio. Name it **QuestionPage**.
+1. Add a new XAML page to the PCL project. The template is called **Forms Content Page Xaml** in Xamarin Studio; it’s called **Forms Xaml Page** in Visual Studio. Name it **QuestionPage**.
 
 2. Open **QuestionPage.xaml**.
 
-3. Add a **Grid** with 4 rows and 2 columns to the **Content** of the **Page**.
+3. Add a `Grid` with 4 rows and 2 columns to the **Content** of the **Page**.
 
 	- The height of rows 0, 1, and 3 should be **Auto** sized to match their largest child.
-	- The height of row 2 should be set to “**\***” so it takes up all the remaining vertical space.
+	- The height of row 2 should be set to &quot;*&quot; so it takes up all the remaining vertical space.
 	- The columns should be equal width, which is the default.
 
 To get you started, below is sample showing how to define the first row in XAML, the other rows and the columns are similar:
 
 ```
-\<Grid.RowDefinitions\>\
-\<RowDefinition Height="Auto" /\>\
+<Grid.RowDefinitions>
+<RowDefinition Height="Auto" />
 ...
-\</Grid.RowDefinitions\>
+</Grid.RowDefinitions>
 ```
 
 4. Add 3 buttons and 2 labels to the Grid as shown in the screenshot above.
@@ -164,15 +164,15 @@ In this part, you will add pre-written classes for the game logic and an XML fil
 
 9. Locate **OnStart**. You will be adding code to this method.
 
-10. Files packaged as Embedded Resource are available through the Assembly object for that assembly. Use **typeof(App).GetTypeInfo().Assembly** to get a reference to the assembly object containing the App class and store it in a local variable.
+10. Files packaged as Embedded Resource are available through the Assembly object for that assembly. Use `typeof(App).GetTypeInfo().Assembly` to get a reference to the assembly object containing the App class and store it in a local variable.
 
 11. Use the **GetManifestResourceStream** method from the **Assembly** class to open the questions.xml file. The filename needs to include the assembly name and the folder name: **eXam.Data.questions.xml**.
 
-12. You now have a **Stream** object. Use a **StreamReader** and its **ReadToEnd** method to convert the file contents into a string.
+12. You now have a `Stream` object. Use a `StreamReader` and its `ReadToEnd` method to convert the file contents into a string.
 
-13. Use the provided **QuizQuestionXmlSerializer** to deserialize the stream containing the XML into a **List\<QuizQuestion\>**.
+13. Use the provided `QuizQuestionXmlSerializer` to deserialize the stream containing the XML into a `List<QuizQuestion>`.
 
-14. Instantiate a **Game** object passing in the list of quiz questions; store the game object in a **public** **static** property named **CurrentGame** in the App class.
+14. Instantiate a **Game** object passing in the list of quiz questions; store the game object in a `public static` property named **CurrentGame** in the App class.
 
 ## Cache game data
 
@@ -187,8 +187,8 @@ Working with the on-device file system requires specific code for each platform.
 ```
 public interface IFileHelper
 {
-  Task\<string\> LoadLocalFileAsync (string filename);
-  Task\<bool\>   SaveLocalFileAsync (string filename, string data);
+  Task<string> LoadLocalFileAsync (string filename);
+  Task<bool>   SaveLocalFileAsync (string filename, string data);
 
   string GetNameWithPath (string filename);
 }
@@ -202,22 +202,22 @@ public interface IFileHelper
 
 6. Locate **OnStart**. You will be adding code to this method.
 
-7. Use the **DependencyService** to get an **IFileHelper** implementation. The **DependencyService** will give you the correct implementation based on the current runtime platform.
+7. Use the **DependencyService** to get an `IFileHelper` implementation. The **DependencyService** will give you the correct implementation based on the current runtime platform.
 
-8. Use the **FileHelper** to load a file named **cachedquestions.xml** using the **LoadLocalFileAsync** method (the xml file doesn’t exist yet but we’ll create it shortly). Notice this method returns a **Task\<string\>** so you’ll need to add the **async** keyword to the **OnStart** method and await this call.
+8. Use the **FileHelper** to load a file named **cachedquestions.xml** using the **LoadLocalFileAsync** method (the xml file doesn’t exist yet but we’ll create it shortly). Notice this method returns a `Task<string>` so you’ll need to add the **async** keyword to the **OnStart** method and await this call.
 
 9. Test if the load fails by checking if the returned string is **null**. If it failed, you don’t have a cached copy on disk yet, so run the existing code that loads the XML from the embedded file in the PCL. Notice how we are setting up a fallback: use the cache if it is available, otherwise use the embedded file. Later, we will extend this concept to include a question file downloaded from a web URI.
 
-10. After loading from the PCL, use the **FileHelper** to save the XML in a file named **cachedquestions.xml**. The next time the app runs, this cached version will be available and the app won’t need to load from the embedded file.
+10. After loading from the PCL, use the `FileHelper` to save the XML in a file named **cachedquestions.xml**. The next time the app runs, this cached version will be available and the app won’t need to load from the embedded file.
 
-11. At this point, you will have a string that represents the XML. Your existing code that converts the string to a **List\<QuizQuestion\>** and then uses the **List\<QuizQuestion\>** to instantiate a **Game** object will remain the same.
+11. At this point, you will have a string that represents the XML. Your existing code that converts the string to a `List<QuizQuestion>` and then uses the `List<QuizQuestion>` to instantiate a **Game** object will remain the same.
 
 
 ## Add code to detect the current network state
  
 In this part, you will check if the app is connected to the internet. You will use a NuGet package that lets you write cross-platform code in your PCL to avoid writing platform-specific implementations.
 
-1. Add the NuGet package “Connectivity Plugin for Xamarin and Windows” (Id **Xam.Plugin.Connectivity**). You will need to add it to all projects: the PCL and each platform-specific project.
+1. Add the NuGet package &quot;Connectivity Plugin for Xamarin and Windows&quot; (Id **Xam.Plugin.Connectivity**). You will need to add it to all projects: the PCL and each platform-specific project.
 
 2. Open the Application class: **App.cs** in Xamarin Studio or **eXam.cs** in Visual Studio.
 
@@ -243,7 +243,7 @@ In this part, you will update the app to load the quiz questions from a JSON fil
 
 7. Change the name of the cache file from **cachedquestions.xml** to **cachedquestions.json**.
 
-8. Change the deserialize code so it uses **JsonConvert.DeserializeObject\<List\<QuizQuestion\>\>()** from the Json.NET package instead of **QuizQuestionXmlSerializer.Deserialize**.
+8. Change the deserialize code so it uses `JsonConvert.DeserializeObject<List<QuizQuestion>>()` from the Json.NET package instead of `QuizQuestionXmlSerializer.Deserialize`.
 
 ## Download and update quiz questions
 
@@ -318,7 +318,7 @@ In this part, you will create a view model to make it easier to control visual p
 
 7. Open **QuestionPage.xaml**.
 
-8. Find the label that gives the user the “Correct” / “Incorrect” feedback on their response. Bind the label’s **Text** property to the **Response** property of the view model.
+8. Find the label that gives the user the &quot;Correct&quot; / &quot;Incorrect&quot; feedback on their response. Bind the label’s **Text** property to the **Response** property of the view model.
 
 9. Open **HomePage.cs**.
 
@@ -326,7 +326,7 @@ In this part, you will create a view model to make it easier to control visual p
 
 11. Change the instantiation of **QuestionPage**: create an instance of **QuestionPageViewModel** and pass it to the **QuestionPage** constructor.
 
-12. Run the application and verify the question text is still displayed on the question page. The “Correct” / “Incorrect” response feedback will not be displayed yet.
+12. Run the application and verify the question text is still displayed on the question page. The &quot;Correct&quot; / &quot;Incorrect&quot; response feedback will not be displayed yet.
 
 ## Implement INotifyPropertyChanged
 
@@ -346,7 +346,7 @@ In this part, you will use Commands to respond to button taps from the Question 
 
 1. Open **QuestionPageViewModel.cs** in the PCL project.
 
-2. Add three properties of type **Command**, one for each button. Name them **TrueSelected**, **FalseSelected**, and **NextSelected**. You can use the C\# “automatic property” syntax; you do not need to declare a backing field or implement get/set manually.
+2. Add three properties of type **Command**, one for each button. Name them **TrueSelected**, **FalseSelected**, and **NextSelected**. You can use the C\# &quot;automatic property&quot; syntax; you do not need to declare a backing field or implement get/set manually.
 
 3. Create methods that implement the logic required when the user taps the True or False button: **void** **OnTrue()** and **void** **OnFalse()**:
 
@@ -400,13 +400,13 @@ To write it yourself:
 
 1. Add a new class named **ReviewPageViewModel** to the PCL project and open the file.
 
-2. Add a public **List\<QuizQuestionViewModel\>** property named **QuestionViewModels**. This property will hold the data that the list view will display.
+2. Add a public `List<QuizQuestionViewModel>` property named **QuestionViewModels**. This property will hold the data that the list view will display.
 
 3. Add/Change the constructor signature to accept a **Game** object named **game**.
 
-4. Instantiate a **List\<QuizQuestionViewModel\>** and assign it to your property.
+4. Instantiate a `List<QuizQuestionViewModel>` and assign it to your property.
 
-5. Create a **for** loop that runs from 0 to **game.NumberOfQuestions**. In each iteration, create a new **QuizQuestionViewModel** for one of the game’s questions and add it to the **QuestionViewModels** property. Use the **Questions** and **Responses** properties of **game** to get the question and response needed to create the view model object.
+5. Create a `for` loop that runs from 0 to **game.NumberOfQuestions**. In each iteration, create a new **QuizQuestionViewModel** for one of the game’s questions and add it to the **QuestionViewModels** property. Use the **Questions** and **Responses** properties of **game** to get the question and response needed to create the view model object.
 
 6. Add a new XAML Content Page to the PCL project. Name it **ReviewPage**.
 
@@ -430,7 +430,7 @@ To write it yourself:
 
 16. Inside the view cell, use a **StackLayout** to display three **Label**s. Bind each **Label**’s **Text** property to a property on a **QuizQuestionViewModel**: Question, Answer, and Response.
 
-> Optionally, use **StringFormat** within the **Text** bindings to clarify the displayed text. For example **Text=”{Binding Response, StringFormat=’Your answer: {0}’}”**.**\
+> Optionally, use **StringFormat** within the **Text** bindings to clarify the displayed text. For example **Text=&quot;{Binding Response, StringFormat=’Your answer: {0}’}&quot;**.**\
   **
 
 17. Locate **NavigationService.cs** in the provided Assets folder and add it to the PCL. Take a moment to review the file. This will make it easy to navigate the app from code inside a view model without coupling the view model to the UI framework.
@@ -467,7 +467,7 @@ In this part, you will use a DataTrigger to change the text color of the user’
 
 1. Open **ReviewPage.xaml** in the PCL project.
 
-2. Find the **Label** used to display the user’s response and change the syntax to use a full **\</Label\>** closing tag.
+2. Find the **Label** used to display the user’s response and change the syntax to use a full `</Label\>` closing tag.
 
 3. Set the **Label**’s **TextColor** to **Red**.
 
@@ -543,10 +543,10 @@ you continue your learning!
     launch screen for each mobile platform.
 
 -   Xamarin.Form Navigation page has a built in Back button; its default
-    text is “Back”. Each page can specify what text is displayed when it
+    text is &quot;Back&quot;. Each page can specify what text is displayed when it
     is the target of the back operation. For the HomePage, set the text
-    of the Back button from its default of “Back” to something more
-    meaningful such as “End Game” using
+    of the Back button from its default of &quot;Back&quot; to something more
+    meaningful such as &quot;End Game&quot; using
     NavigationPage.SetBackButtonTitle.
 
 

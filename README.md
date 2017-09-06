@@ -1,7 +1,5 @@
 # Fundamentals Track Exercises
 
-> This hands-on-lab was originally part of the training sessions at Evolve 2016.
-
 You are going to build a simple quiz application in Xamarin Forms. The app will load a set of true/false questions from either a local file or a web URI and display them one at a time for the user to answer. It will track the user’s answers and display their score at the end.
 
 The app will have three pages:
